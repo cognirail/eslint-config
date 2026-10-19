@@ -4,6 +4,8 @@ Opinionated ESLint flat config + Prettier for TypeScript projects.
 
 Designed as **AI coding guardrails** — strict type checks, complexity detection, modern JS enforcement, and no inline escape hatches. One package, zero config hassle.
 
+Sister baselines with the same stance: [Python](https://github.com/cognirail/python-lint-config) · [Bash](https://github.com/cognirail/bash-lint-config) · [Go](https://github.com/cognirail/go-lint-config) · [Rust](https://github.com/cognirail/rust-lint-config).
+
 ## Included Plugins
 
 | Plugin                                | Purpose                                                           |
