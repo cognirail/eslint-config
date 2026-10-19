@@ -379,6 +379,13 @@ Key rules that catch common AI-generated code issues:
 | `no-console` / `no-debugger`                       | AI leaves ad-hoc diagnostics in production paths       | Blocks stray debugging artifacts               |
 | `prefer-const` / `no-var`                          | AI uses `let` or `var` unnecessarily                   | Forces immutable bindings                      |
 
+### How style-only rules are tuned
+
+Rules that prevent bugs stay on even when the fixed code is slightly harder to read. For rules that are purely a
+style preference, the deciding question is whether the rewrite makes the code easier or harder for a human or an AI
+to understand. Concrete signals: does it add a negation or double negation, add nesting, make intent more implicit,
+or make a name less precise? If yes, the rule is turned off or set to an option that avoids it.
+
 ### Notable Unicorn Customizations
 
 - **`name-replacements`** (formerly `prevent-abbreviations`): Allows common short names: `args`, `ctx`, `db`, `e2e`, `Env`, `env`, `err`, `fn`, `params`, `Prod`, `prod`, `props`, `ref`, `req`, `res`, `util`, `utils`; ignores conventional `*.e2e.*` filename segments
