@@ -62,6 +62,11 @@ export function unicorn({ abbreviations = {}, abbreviationIgnore = [] } = {}) {
         'unicorn/no-process-exit': 'off',
         // Default 1 flips `if (x) { a(); b(); }` into a negated guard (`if (!(x)) return;`), which reads worse.
         'unicorn/prefer-early-return': ['error', { maximumStatements: 3 }],
+        'unicorn/prefer-continue': ['error', { maximumStatements: 3 }],
+        // `always` folds multi-line branches into one sprawling ternary.
+        'unicorn/prefer-ternary': ['error', 'only-single-line'],
+        // `logical` rewrites `x === undefined ? {} : {…}` into `!(x === undefined) && {…}`.
+        'unicorn/consistent-conditional-object-spread': ['error', 'ternary'],
         // Comment layout only; one-line `/** … */` and ` * ` prefixes are the TSDoc / editor default.
         'unicorn/single-line-block-comment-style': 'off',
         'unicorn/no-asterisk-prefix-in-documentation-comments': 'off',

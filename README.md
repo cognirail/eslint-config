@@ -388,7 +388,9 @@ Key rules that catch common AI-generated code issues:
 - **`single-line-block-comment-style`**: Disabled — comment layout only, and it contradicts the TSDoc / editor default (`/** one line */`)
 - **`no-asterisk-prefix-in-documentation-comments`**: Disabled — comment layout only; `*` prefixes in multi-line doc comments are the TSDoc / editor default
 - **`prefer-top-level-await`**: Disabled for `main.ts` — CommonJS entry files cannot use top-level await
-- **`prefer-early-return`**: `maximumStatements: 3` — the default (1) turns a short `if (x) { a(); b(); }` into a negated guard that reads worse
+- **`prefer-early-return`** / **`prefer-continue`**: `maximumStatements: 3` — the default (1) turns a short `if (x) { a(); b(); }` into a negated guard that reads worse
+- **`prefer-ternary`**: `only-single-line` — `always` folds multi-line branches into one sprawling ternary
+- **`consistent-conditional-object-spread`**: `ternary` — `logical` rewrites `x === undefined ? {} : {…}` into `!(x === undefined) && {…}`
 - **`filename-case`**: Allows kebab-case, camelCase, and PascalCase; skips Jest's `__tests__` / `__mocks__` / `__snapshots__` directories (and files inside them)
 
 ### Notable TypeScript Customizations
