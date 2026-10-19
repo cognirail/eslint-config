@@ -94,6 +94,8 @@ export function unicorn({ abbreviations = {}, abbreviationIgnore = [], testFiles
       rules: {
         // `let app; beforeEach(() => { app = … })` is the standard Vitest / Jest fixture idiom.
         'unicorn/no-top-level-assignment-in-function': 'off',
+        // Installing stubs and harness hooks on `globalThis` is how tests reach code they do not import.
+        'unicorn/no-global-object-property-assignment': 'off',
       },
     },
     {
