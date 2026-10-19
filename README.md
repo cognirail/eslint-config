@@ -385,6 +385,8 @@ Key rules that catch common AI-generated code issues:
 - **`no-null`**: Disabled — Node.js/TS ecosystem uses `null` pervasively
 - **`no-array-reduce`**: Disabled — `reduce` is idiomatic for data aggregation
 - **`prefer-module`**: Disabled — supports mixed CJS/ESM codebases
+- **`single-line-block-comment-style`**: Disabled — comment layout only, and it contradicts the TSDoc / editor default (`/** one line */`)
+- **`no-asterisk-prefix-in-documentation-comments`**: Disabled — comment layout only; `*` prefixes in multi-line doc comments are the TSDoc / editor default
 - **`prefer-top-level-await`**: Disabled for `main.ts` — CommonJS entry files cannot use top-level await
 - **`filename-case`**: Allows kebab-case, camelCase, and PascalCase
 

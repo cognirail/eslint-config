@@ -60,6 +60,9 @@ export function unicorn({ abbreviations = {}, abbreviationIgnore = [] } = {}) {
         'unicorn/no-array-reduce': 'off',
         'unicorn/prefer-module': 'off',
         'unicorn/no-process-exit': 'off',
+        // Comment layout only; one-line `/** … */` and ` * ` prefixes are the TSDoc / editor default.
+        'unicorn/single-line-block-comment-style': 'off',
+        'unicorn/no-asterisk-prefix-in-documentation-comments': 'off',
         'unicorn/filename-case': [
           'error',
           { cases: { kebabCase: true, camelCase: true, pascalCase: true } },
