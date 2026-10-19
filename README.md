@@ -397,6 +397,7 @@ or make a name less precise? If yes, the rule is turned off or set to an option 
 - **`prefer-top-level-await`**: Disabled for `main.ts` — CommonJS entry files cannot use top-level await
 - **`prefer-early-return`** / **`prefer-continue`**: `maximumStatements: 3` — the default (1) turns a short `if (x) { a(); b(); }` into a negated guard that reads worse
 - **`no-top-level-assignment-in-function`**: Disabled in test files — `let app; beforeEach(() => { app = … })` is the standard Vitest / Jest fixture idiom
+- **`prefer-iterator-zip`**: Disabled — its fix uses `Iterator.zip`, which Node 24 (the engines floor) does not provide
 - **`prefer-ternary`**: `only-single-line` — `always` folds multi-line branches into one sprawling ternary
 - **`consistent-conditional-object-spread`**: `ternary` — `logical` rewrites `x === undefined ? {} : {…}` into `!(x === undefined) && {…}`
 - **`filename-case`**: Allows kebab-case, camelCase, and PascalCase; skips Jest's `__tests__` / `__mocks__` / `__snapshots__` directories (and files inside them)

@@ -62,6 +62,8 @@ export function unicorn({ abbreviations = {}, abbreviationIgnore = [], testFiles
         'unicorn/no-array-reduce': 'off',
         'unicorn/prefer-module': 'off',
         'unicorn/no-process-exit': 'off',
+        // Suggests `Iterator.zip`, which Node 24 (the engines floor) does not ship.
+        'unicorn/prefer-iterator-zip': 'off',
         // Default 1 flips `if (x) { a(); b(); }` into a negated guard (`if (!(x)) return;`), which reads worse.
         'unicorn/prefer-early-return': ['error', { maximumStatements: 3 }],
         'unicorn/prefer-continue': ['error', { maximumStatements: 3 }],
