@@ -131,6 +131,15 @@ export function run(): string {
 `,
   );
 
+  await writeFile(
+    path.join(root, 'src', 'features', 'braceless-if.ts'),
+    `export function run(flag: boolean): string {
+  if (flag) return 'yes';
+  return 'no';
+}
+`,
+  );
+
   const results = await eslint.lintFiles(['src/**/*.ts']);
   const byFile = new Map(
     results.map((result) => [result.filePath.replaceAll('\\', '/').split('/').at(-1), result]),
@@ -169,6 +178,8 @@ export function run(): string {
       .get('inline-disable.ts')
       .messages.some((message) => message.ruleId === 'ai-guardrails/no-inline-eslint-config'),
   );
+  // base turns curly on; the prettier preset that runs last must not switch it back off
+  assert.ok(byFile.get('braceless-if.ts').messages.some((message) => message.ruleId === 'curly'));
 
   const baseConfig = defineConfig({ disableTypeChecked: true });
   assert.ok(baseConfig.length > 0);
