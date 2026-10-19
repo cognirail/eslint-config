@@ -97,6 +97,13 @@ export function unicorn({ abbreviations = {}, abbreviationIgnore = [], testFiles
       },
     },
     {
+      // Tool config files (`eslint.config.mjs`, `vite.config.ts`, …) exist to build their export from calls.
+      files: ['**/*.config.{js,cjs,mjs,ts,cts,mts}'],
+      rules: {
+        'unicorn/no-top-level-side-effects': 'off',
+      },
+    },
+    {
       files: ['**/main.ts'],
       rules: {
         'unicorn/prefer-top-level-await': 'off',
