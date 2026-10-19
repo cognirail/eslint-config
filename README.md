@@ -21,7 +21,7 @@ Sister baselines with the same stance: [Python](https://github.com/cognirail/pyt
 
 ## Requirements
 
-- **Node.js** ^20.19.0 || ^22.13.0 || >=24
+- **Node.js** >= 24
 - **ESLint** >= 10.4.1
 - **TypeScript** >= 6.0.3 (optional — works without it when `disableTypeChecked: true`)
 - **Prettier** >= 3.8.3 (optional — only needed if using `./prettier` export)
@@ -69,8 +69,6 @@ Done. Run `pnpm lint` to check, `pnpm lint:fix` to auto-fix.
 > **Note:** Your project must have a `tsconfig.json` for type-aware rules to work. If you don't have one, set `disableTypeChecked: true` in the options.
 
 ### 5. (Optional) Spell Checking
-
-Requires **Node.js** >= 22.18.0 because `@cspell/eslint-plugin` v10 uses that runtime baseline.
 
 ```bash
 pnpm add -D @cspell/eslint-plugin
@@ -304,10 +302,10 @@ export default defineConfig({
   // Additional ignore patterns (extends defaults, doesn't replace)
   ignores: ['**/generated/**', '**/proto/**'],
 
-  // Additional abbreviations for unicorn/prevent-abbreviations (merged with defaults)
+  // Additional abbreviations for unicorn/name-replacements (merged with defaults)
   abbreviations: { src: true, dest: true },
 
-  // Additional prevent-abbreviations ignore patterns (merged with defaults)
+  // Additional name-replacements ignore patterns (merged with defaults)
   abbreviationIgnore: ['(^|[._-])api($|[._-])'],
 
   // Additional file globs where devDependency imports are allowed (merged with defaults)
@@ -383,7 +381,7 @@ Key rules that catch common AI-generated code issues:
 
 ### Notable Unicorn Customizations
 
-- **`prevent-abbreviations`**: Allows common short names: `args`, `ctx`, `db`, `e2e`, `Env`, `env`, `err`, `fn`, `params`, `Prod`, `prod`, `props`, `ref`, `req`, `res`, `util`, `utils`; ignores conventional `*.e2e.*` filename segments
+- **`name-replacements`** (formerly `prevent-abbreviations`): Allows common short names: `args`, `ctx`, `db`, `e2e`, `Env`, `env`, `err`, `fn`, `params`, `Prod`, `prod`, `props`, `ref`, `req`, `res`, `util`, `utils`; ignores conventional `*.e2e.*` filename segments
 - **`no-null`**: Disabled — Node.js/TS ecosystem uses `null` pervasively
 - **`no-array-reduce`**: Disabled — `reduce` is idiomatic for data aggregation
 - **`prefer-module`**: Disabled — supports mixed CJS/ESM codebases
@@ -417,7 +415,7 @@ Key rules that catch common AI-generated code issues:
 
 ## Environment
 
-Targets modern Node.js runtimes (`^20.19.0 || ^22.13.0 || >=24`) with `ecmaVersion: 'latest'` and Node + ES2025 globals by default. Uses `eslint-plugin-n`'s `flat/recommended-module` preset (ESM-first), with `*.cjs` and `*.cts` parsed as CommonJS.
+Targets Node.js >= 24 with `ecmaVersion: 'latest'` and Node + ES2025 globals by default. Uses `eslint-plugin-n`'s `flat/recommended-module` preset (ESM-first), with `*.cjs` and `*.cts` parsed as CommonJS.
 
 ## VSCode Setup
 

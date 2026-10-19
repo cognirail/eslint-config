@@ -32,7 +32,7 @@ export interface DefineConfigOptions {
   disableTypeChecked?: boolean;
 
   /**
-   * Additional abbreviations to allow in `unicorn/prevent-abbreviations`.
+   * Additional abbreviations to allow in `unicorn/name-replacements`.
    * Merged with the built-in allowList (args, ctx, db, e2e, Env, env, err, fn, params, Prod, prod, props, ref, req, res, util, utils).
    *
    * @example
@@ -41,7 +41,7 @@ export interface DefineConfigOptions {
   abbreviations?: Record<string, boolean>;
 
   /**
-   * Additional patterns ignored by `unicorn/prevent-abbreviations`.
+   * Additional patterns ignored by `unicorn/name-replacements`.
    * Merged with built-in ignores for conventional names such as `*.e2e.ts`.
    *
    * @example

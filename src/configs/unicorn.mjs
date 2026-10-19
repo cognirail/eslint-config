@@ -45,10 +45,10 @@ const BASE_ABBREVIATION_REPLACEMENTS = {
 
 export function unicorn({ abbreviations = {}, abbreviationIgnore = [] } = {}) {
   return [
-    pluginUnicorn.configs['flat/recommended'],
+    pluginUnicorn.configs.recommended,
     {
       rules: {
-        'unicorn/prevent-abbreviations': [
+        'unicorn/name-replacements': [
           'error',
           {
             allowList: { ...BASE_ABBREVIATIONS, ...abbreviations },
