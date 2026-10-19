@@ -64,6 +64,9 @@ export function unicorn({ abbreviations = {}, abbreviationIgnore = [], testFiles
         'unicorn/no-process-exit': 'off',
         // Suggests `Iterator.zip`, which Node 24 (the engines floor) does not ship.
         'unicorn/prefer-iterator-zip': 'off',
+        // Treats every integer check as a safety check; an "is it integral" test (number formatting) has no inline
+        // escape under `noInlineConfig`, and swapping it in changes output at 2 ** 53.
+        'unicorn/prefer-number-is-safe-integer': 'off',
         // Default 1 flips `if (x) { a(); b(); }` into a negated guard (`if (!(x)) return;`), which reads worse.
         'unicorn/prefer-early-return': ['error', { maximumStatements: 3 }],
         'unicorn/prefer-continue': ['error', { maximumStatements: 3 }],
