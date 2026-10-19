@@ -60,6 +60,8 @@ export function unicorn({ abbreviations = {}, abbreviationIgnore = [] } = {}) {
         'unicorn/no-array-reduce': 'off',
         'unicorn/prefer-module': 'off',
         'unicorn/no-process-exit': 'off',
+        // Default 1 flips `if (x) { a(); b(); }` into a negated guard (`if (!(x)) return;`), which reads worse.
+        'unicorn/prefer-early-return': ['error', { maximumStatements: 3 }],
         // Comment layout only; one-line `/** … */` and ` * ` prefixes are the TSDoc / editor default.
         'unicorn/single-line-block-comment-style': 'off',
         'unicorn/no-asterisk-prefix-in-documentation-comments': 'off',
