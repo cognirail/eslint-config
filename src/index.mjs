@@ -74,7 +74,7 @@ export function defineConfig(options = {}) {
     ...importX({ maxCycleDepth }),
 
     // 7. Modern JS enforcement
-    ...unicorn({ abbreviations, abbreviationIgnore }),
+    ...unicorn({ abbreviations, abbreviationIgnore, testFiles }),
 
     // 8. Complexity + bug detection
     ...sonarjs(),

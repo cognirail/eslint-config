@@ -1,5 +1,7 @@
 import pluginUnicorn from 'eslint-plugin-unicorn';
 
+import { BASE_TEST_FILES } from './node.mjs';
+
 const BASE_ABBREVIATIONS = {
   args: true,
   ctx: true,
@@ -43,7 +45,7 @@ const BASE_ABBREVIATION_REPLACEMENTS = {
   utils: false,
 };
 
-export function unicorn({ abbreviations = {}, abbreviationIgnore = [] } = {}) {
+export function unicorn({ abbreviations = {}, abbreviationIgnore = [], testFiles = [] } = {}) {
   return [
     pluginUnicorn.configs.recommended,
     {
@@ -78,6 +80,13 @@ export function unicorn({ abbreviations = {}, abbreviationIgnore = [] } = {}) {
             ignore: [/^__(tests|mocks|snapshots)__$/u],
           },
         ],
+      },
+    },
+    {
+      files: [...BASE_TEST_FILES, ...testFiles],
+      rules: {
+        // `let app; beforeEach(() => { app = … })` is the standard Vitest / Jest fixture idiom.
+        'unicorn/no-top-level-assignment-in-function': 'off',
       },
     },
     {

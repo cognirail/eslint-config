@@ -1,6 +1,6 @@
 import pluginN from 'eslint-plugin-n';
 
-const BASE_TEST_FILES = [
+export const BASE_TEST_FILES = [
   '**/*.test.{ts,tsx,mts,cts,js,jsx,mjs,cjs}',
   '**/*.spec.{ts,tsx,mts,cts,js,jsx,mjs,cjs}',
   '**/*.config.{ts,tsx,mts,cts,js,jsx,mjs,cjs}',
