@@ -65,7 +65,11 @@ export function unicorn({ abbreviations = {}, abbreviationIgnore = [] } = {}) {
         'unicorn/no-asterisk-prefix-in-documentation-comments': 'off',
         'unicorn/filename-case': [
           'error',
-          { cases: { kebabCase: true, camelCase: true, pascalCase: true } },
+          {
+            cases: { kebabCase: true, camelCase: true, pascalCase: true },
+            // Jest's conventional directories; v78 started checking directory names.
+            ignore: [/^__(tests|mocks|snapshots)__$/u],
+          },
         ],
       },
     },
