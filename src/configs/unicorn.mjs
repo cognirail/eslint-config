@@ -70,6 +70,8 @@ export function unicorn({ abbreviations = {}, abbreviationIgnore = [], testFiles
         // Default 1 flips `if (x) { a(); b(); }` into a negated guard (`if (!(x)) return;`), which reads worse.
         'unicorn/prefer-early-return': ['error', { maximumStatements: 3 }],
         'unicorn/prefer-continue': ['error', { maximumStatements: 3 }],
+        // Folds a run of one-condition guards (field-by-field validation) into one long `||` chain.
+        'unicorn/prefer-combined-guards': 'off',
         // `always` folds multi-line branches into one sprawling ternary.
         'unicorn/prefer-ternary': ['error', 'only-single-line'],
         // `logical` rewrites `x === undefined ? {} : {…}` into `!(x === undefined) && {…}`.

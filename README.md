@@ -399,6 +399,7 @@ or make a name less precise? If yes, the rule is turned off or set to an option 
 - **`no-top-level-assignment-in-function`**: Disabled in test files — `let app; beforeEach(() => { app = … })` is the standard Vitest / Jest fixture idiom
 - **`prefer-number-is-safe-integer`**: Disabled — it treats every integer check as a safety check; formatting code that asks "is this integral" has no inline escape under `noInlineConfig`, and the swap changes output from 2 ** 53 up
 - **`prefer-iterator-zip`**: Disabled — its fix uses `Iterator.zip`, which Node 24 (the engines floor) does not provide
+- **`prefer-combined-guards`**: Disabled — it folds a run of one-condition guards (field-by-field validation) into one long `||` chain, which hides which check rejects and turns every added check into a whole-line diff
 - **`prefer-ternary`**: `only-single-line` — `always` folds multi-line branches into one sprawling ternary
 - **`consistent-conditional-object-spread`**: `ternary` — `logical` rewrites `x === undefined ? {} : {…}` into `!(x === undefined) && {…}`
 - **`filename-case`**: Allows kebab-case, camelCase, and PascalCase; skips Jest's `__tests__` / `__mocks__` / `__snapshots__` directories (and files inside them)
